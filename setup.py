@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 # File name   : setup.py
-# Author      : Adeept
-# Date        : 2020/3/14
+# Author      : Adeept 
+# Edit by     : Nels885
+# Date        : 2024/02/06
 
 import os
 import time
@@ -38,27 +39,39 @@ for x in range(1,4):
 		break
 
 for x in range(1,4):
-	if os.system("sudo apt-get install -y python-dev python-pip libfreetype6-dev libjpeg-dev build-essential") == 0:
+	if os.system("sudo apt-get install -y python3-dev python3-pip python3-venv libfreetype6-dev libjpeg-dev build-essential") == 0:
 		break
 
-for x in range(1,4):
-	if os.system("sudo -H pip3 install --upgrade luma.oled") == 0:
+for x in range(1, 4):
+	if os.system("python -m venv venv --system-site-packages") == 0:
 		break
+
+
+for x in range(1,4):
+	if os.system("venv/bin/pip3 install --upgrade luma.oled") == 0:
+		break
+
 
 for x in range(1,4):
 	if os.system("sudo apt-get install -y i2c-tools") == 0:
 		break
-
+"""
 for x in range(1,4):
 	if os.system("sudo apt-get install -y python3-opencv") == 0:
 		break
-
+"""
 for x in range(1,4):
-	if os.system("sudo pip3 install adafruit-pca9685") == 0:
+	if os.system("venv/bin/pip3 install opencv-python-headless") == 0:
 		break
 
+"""
 for x in range(1,4):
-	if os.system("sudo pip3 install rpi_ws281x") == 0:
+	if os.system("venv/bin/pip3 install adafruit-pca9685") == 0:
+		break
+"""
+
+for x in range(1,4):
+	if os.system("venv/bin/pip3 install rpi_ws281x") == 0:
 		break
 
 for x in range(1,4):
@@ -66,43 +79,41 @@ for x in range(1,4):
 		break
 
 for x in range(1,4):
-	if os.system("sudo pip3 install mpu6050-raspberrypi") == 0:
+	if os.system("venv/bin/pip3 install mpu6050-raspberrypi") == 0:
 		break
 
 for x in range(1,4):
-	if os.system("sudo pip3 install flask") == 0:
+	if os.system("venv/bin/pip3 install flask") == 0:
 		break
 
 for x in range(1,4):
-	if os.system("sudo pip3 install flask") == 0:
+	if os.system("venv/bin/pip3 install flask_cors") == 0:
 		break
 
 for x in range(1,4):
-	if os.system("sudo pip3 install flask_cors") == 0:
+	if os.system("venv/bin/pip3 install websockets") == 0:
 		break
 
-for x in range(1,4):
-	if os.system("sudo pip3 install websockets") == 0:
-		break
-
+"""
 try:
 	replace_num("/boot/config.txt",'#dtparam=i2c_arm=on','dtparam=i2c_arm=on\nstart_x=1\n')
 except:
 	print('try again')
 
-
 for x in range(1,4):
-	if os.system("sudo pip3 install numpy") == 0:
+	if os.system("venv/bin/pip3 install numpy") == 0:
 		break
 
 for x in range(1,4):
 	if os.system("sudo apt-get -y install libqtgui4 libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev libqt4-test") == 0:
 		break
+"""
 
 for x in range(1,4):
-	if os.system("sudo pip3 install imutils zmq pybase64 psutil") == 0:   ####
+	if os.system("venv/bin/pip3 install imutils zmq pybase64 psutil") == 0:   ####
 		break
 
+"""
 for x in range(1,4):
 	if os.system("sudo git clone https://github.com/oblique/create_ap") == 0:
 		break
@@ -144,3 +155,4 @@ except:
 print('The program in Raspberry Pi has been installed, disconnected and restarted. \nYou can now power off the Raspberry Pi to install the camera and driver board (Robot HAT). \nAfter turning on again, the Raspberry Pi will automatically run the program to set the servos port signal to turn the servos to the middle position, which is convenient for mechanical assembly.')
 print('restarting...')
 os.system("sudo reboot")
+"""

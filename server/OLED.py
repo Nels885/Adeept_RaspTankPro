@@ -44,7 +44,7 @@ class OLED_ctrl(threading.Thread):
 		self.__running.set()	  # 将running设置为True
 
 	def run(self):
-		while self.__running.isSet():
+		while self.__running.is_set():
 			self.__flag.wait()	  # 为True时立即返回, 为False时阻塞直到内部的标识位为True后返回
 			with canvas(device) as draw:
 				draw.text((0, 0), text_1, fill="white")
