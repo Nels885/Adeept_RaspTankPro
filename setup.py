@@ -94,12 +94,12 @@ for x in range(1,4):
 	if os.system("venv/bin/pip3 install websockets") == 0:
 		break
 
-"""
 try:
-	replace_num("/boot/config.txt",'#dtparam=i2c_arm=on','dtparam=i2c_arm=on\nstart_x=1\n')
+	replace_num("/boot/firmware/config.txt",'#dtparam=i2c_arm=on','dtparam=i2c_arm=on\nstart_x=1\n')
 except:
 	print('try again')
 
+"""
 for x in range(1,4):
 	if os.system("venv/bin/pip3 install numpy") == 0:
 		break
@@ -108,6 +108,14 @@ for x in range(1,4):
 	if os.system("sudo apt-get -y install libqtgui4 libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev libqt4-test") == 0:
 		break
 """
+
+for x in range(1,4):
+	if os.system("sudo apt install -y python3-picamera2 --no-install-recommends") == 0:
+		break
+
+for x in range(1,4):
+	if os.system("sudo raspi-config nonint do_legacy 0") == 0:
+		break
 
 for x in range(1,4):
 	if os.system("venv/bin/pip3 install imutils zmq pybase64 psutil") == 0:   ####
@@ -144,6 +152,7 @@ except:
 os.system('sudo chmod 777 //home/pi/startup.sh')
 
 replace_num('/etc/rc.local','fi','fi\n//home/pi/startup.sh start')
+"""
 
 try: #fix conflict with onboard Raspberry Pi audio
 	os.system('sudo touch /etc/modprobe.d/snd-blacklist.conf')
@@ -155,4 +164,3 @@ except:
 print('The program in Raspberry Pi has been installed, disconnected and restarted. \nYou can now power off the Raspberry Pi to install the camera and driver board (Robot HAT). \nAfter turning on again, the Raspberry Pi will automatically run the program to set the servos port signal to turn the servos to the middle position, which is convenient for mechanical assembly.')
 print('restarting...')
 os.system("sudo reboot")
-"""
